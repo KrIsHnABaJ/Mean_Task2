@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIDDHI'S JS TASK 7</title>
+  </head>
+  <body>
+    <div id="img-div" style="position: relative">
+      <img
+        id="train"
+        src="https://i.ibb.co/FskFDvW/Whats-App-Image-2023-09-25-at-10-34-01-PM.jpg"
+        alt="train"
+        style="width: 400px; height: 200px; position: relative"
+      />
+    </div>
+    <h2 style="color: rgb(0, 0, 0); text-align: center">
+      Click the following buttons to handle animation
+    </h2>
+
+    <div
+      class="controls-div"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      "
+    >
+      <button id="start" onclick="startTrain()">Start</button>
+      <button id="stop" onclick="stopTrain()">Stop</button>
+    </div>
+
+    <script>
+      let id = null;
+      let flag = true;
+
+      function stopTrain() {
+        flag = false;
+      }
+
+      function startTrain() {
+        let elem = document.getElementById("train");
+        let pos = 0;
+        clearInterval(id);
+        id = setInterval(frame, 10);
+        function frame() {
+          if (!flag) {
+            clearInterval(id);
+            flag = true;
+          } else {
+            pos++;
+            elem.style.left = pos + "px";
+          }
+        }
+      }
+    </script>
+    <p id="fin">Made By Siddhi Agrawal</p>
+  </body>
+</html>
